@@ -81,7 +81,7 @@ def test_parsing():
         print(f"\tJSON time = {json_time}, Msgpack time = {msgpack_time}")
         results.append((json_time, msgpack_time))
     # Aggregate all values
-    print("Tests ended. Aggregating")
+    print("--- Tests ended. Aggregating. ---")
     json_total, msgpack_total = 0.0, 0.0
     for json_time, msgpack_time in results:
         json_total += json_time
