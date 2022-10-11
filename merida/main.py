@@ -4,7 +4,7 @@ import time
 from typing import List
 
 import msgpack
-from serialization_tests.request_type import InputRequest
+from merida.request_type import InputRequest
 
 
 def timing(f):
@@ -70,15 +70,15 @@ def test_parsing():
     """
     Serialization-Test 1
     """
+    total = 10
     print("Preparing dummy data...")
-    vals: List[InputRequest] = generate_input_requests()
     results = []
-    for _ in range(10):
-        print("Testing JSON (TOTAL)")
+    for i in range(1, total + 1):
+        print(f"TEST {i}/{total}")
+        vals: List[InputRequest] = generate_input_requests()
         json_time = json_parsing(vals)
-        print("Testing Msgpack (TOTAL)")
         msgpack_time = msgpack_parsing(vals)
-        print(f"Json time = {json_time}, Msgpack time = {msgpack_time}")
+        print(f"\tJSON time = {json_time}, Msgpack time = {msgpack_time}")
         results.append((json_time, msgpack_time))
     # Aggregate all values
     print("Tests ended. Aggregating")
