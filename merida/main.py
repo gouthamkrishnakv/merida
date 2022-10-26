@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8
+
+"""
+Merida
+
+`json` and `msgpack` implementations benchmarking.:
+"""
 import json
 import random
 import time
